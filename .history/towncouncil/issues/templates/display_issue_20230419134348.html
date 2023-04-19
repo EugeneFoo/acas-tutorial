@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-lg-9">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12 mx-auto">
+      <h1 style="font-weight: bold;">Specific Issue</h1>
+      <p style="padding: 1rem 0">Date Submitted: {{ issue.submit_date }}</p>
+    </div>
+    <div class="col-lg-6 col-md-12 mx-auto"></div>
+  </div>
+</div>
+<div class="container col-lg-9" id="specificIssue">
+  <div class="table-responsive-lg">
+    <form method="post" enctype="multipart/form-data">
+      {{ form.non_field_errors }}
+      {% csrf_token %}
+      <h1>Issue Information</h1>
+      <table class="table table-bordered">
+        <colgroup>
+          <col span="1" style="width: 15%;">
+          <col span="1" style="width: 85%;">
+       </colgroup>
+        <tbody>
+          <tr>
+            <td>Summary</td>
+            <td>{{ issue.summary }}</td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>{{ issue.description }}</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{ issue.location }}</td>
+          </tr>
+          <tr>
+            <td>Evidence</td>
+            <td>{% load static %}<a href="/{{ issue.evidence }}" download  class="btn btn-dark float-right">Download</a></td>
+
+            <!-- <td>{% load static %}<a href="/{{ issue.evidence }}">{{ issue.evidence }}</a></td> -->
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{ issue.type }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>Issue Submitted By</h1>
+      <table class="table table-bordered">
+        <colgroup>
+          <col span="1" style="width: 15%;">
+          <col span="1" style="width: 85%;">
+       </colgroup>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td>{{ issue.first_name }}</td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>{{ issue.last_name }}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{ issue.email }}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{ issue.phone }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>Issue Status</h1>
+      <table class="table table-bordered">
+        <colgroup>
+          <col span="1" style="width: 15%;">
+          <col span="1" style="width: 85%;">
+       </colgroup>
+        <tbody>
+          <tr>
+            <td>Status</td>
+            <td>
+              <select name="issue_status" class="form-select form-control" id="issue_status">
+                <option id="Open">Open</option>
+                <option id="Pending">Pending</option>
+                <option id="Resolved">Resolved</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-end">
+        <button type="submit" id="submit" class="btn btn-secondary sgds">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  selectedOption = document.getElementById("{{ issue.status }}")
+  selectedOption.setAttribute("selected", "")
+</script>
+
+<style>
+  #specificIssue {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+</style>
+{% endblock %}

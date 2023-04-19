@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-lg-9">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12 mx-auto">
+      <h1 style="font-weight: bold;">Issues List</h1>
+      <p style="padding: 1rem 0">The following table displays the list of issues submitted by users.</p>
+    </div>
+    <div class="col-lg-6 col-md-12 mx-auto"></div>
+  </div>
+</div>
+<div class="container col-md-12 col-lg-9" style="padding-bottom: 4rem">
+  <div class="row justify-content-center">
+    <div class="table-responsive-lg">
+      <table class="table table-hover">
+        <colgroup>
+          <col span="1" style="width: 10%;">
+          <col span="1" style="width: 10%;">
+          <col span="1" style="width: 40%;">
+          <col span="1" style="width: 30%;">
+          <col span="1" style="width: 10%;">
+       </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Type</th>
+            <th scope="col">Summary</th>
+            <th scope="col">Date Submitted</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for issue in issues %}
+          <tr>
+            <th scope="row">{{ issue.id }}</th>
+            <td>{{ issue.type }}</td>
+            <td><a href="{% url 'display_issue' issue.id %}">{{ issue.summary }}</a></td>
+            <td>{{ issue.submit_date }}</td>
+            <td>{{ issue.status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<style>
+  td a {
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  th a {
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+  }
+
+</style>
+{% endblock %}

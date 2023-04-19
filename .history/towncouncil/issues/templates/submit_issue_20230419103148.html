@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-lg-9">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12 mx-auto">
+      <h1 style="font-weight: bold;">Issues Submission Form</h1>
+      <p style="padding: 1rem 0">Submit your issues in the form below. The responder team will reach out to you as soon as possible to resolve your issue.</p>
+    </div>
+    <div class="col-lg-6 col-md-12 mx-auto"></div>
+  </div>
+</div>
+<div class="container col-lg-11">
+  <section class="shadow rounded p-5 my-8 mx-md-8" style="background-color: white;">
+    <form id="issueform" method="post" enctype="multipart/form-data">
+      {{ form.non_field_errors }}
+      {% csrf_token %}
+      <div class="mx-md-8">
+        <div class="row">
+          <div id="errorSubmission">
+            {% if form.errors %}
+            <div class="alert alert-danger">
+              {{ form.errors }}
+            </div>
+            {% endif %}
+          </div>
+          <h1>Personal Particulars</h1>
+          <div class="mb-3 col-md-6 col-12">
+            <label class="form-label" for="{{ form.first_name.id_for_label }}">First Name*</label>
+            {{ form.first_name }}
+          </div>
+          <div class="mb-3 col-md-6 col-12">
+            <label class="form-label" for="{{ form.last_name.id_for_label }}">Last Name*</label>
+            {{ form.last_name }}
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.email.id_for_label }}">Email*</label>
+          {{ form.email }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.phone.id_for_label }}">Phone*</label>
+          {{ form.phone }}
+        </div>
+        <h1>Issue Encountered</h1>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.summary.id_for_label }}">Summary*</label>
+          {{ form.summary }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.description.id_for_label }}">Description*</label>
+          {{ form.description }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.location.id_for_label }}">Location*</label>
+          {{ form.location }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.evidence.id_for_label }}">Evidence*</label>
+          <p style="margin-bottom: 0;"><i>Only image files are allowed</i></p>
+          {{ form.evidence }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="{{ form.type.id_for_label }}">Type*</label>
+          <p style="margin-bottom: 0;"><i>Type of issue</i></p>
+          {{ form.type }}
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              id="agreement"
+              class="form-check-input"
+              required
+            />
+            <label title="" for="agreement" class="form-check-label">
+              I agree to the terms of the Subscriber Agreement and the Privacy Policy
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end my-8 mx-md-8">
+        <button type="submit" id="submit" class="btn btn-secondary sgds">Submit</button>
+      </div>
+    </form>
+  </section>
+</div>
+{% endblock %}

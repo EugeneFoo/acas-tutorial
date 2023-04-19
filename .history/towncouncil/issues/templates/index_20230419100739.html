@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-md-12 col-lg-9" style="padding-bottom: 2rem">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-12">
+      <h1 style="font-weight: bold;">ACAS Town Council Issues Submission Website</h1>
+      <p style="padding: 1rem 0">Submit any issues you face around your neighbourhood and our team will investigate your issue!</p>
+      <a href="#" style="padding: 0.5rem; font-weight:bold; color: white; background: #004A57; border-radius: 5px; text-align: center; text-decoration: none;">Report any issues you've found here →</a>
+    </div>
+    <div class="col-lg-6 col-md-12" style="text-align: right;">
+      {% load static %}<img src="{% static 'index1.jpg' %}" alt="Designed by Freepik" style="width: 75%;">
+    </div>
+  </div>
+</div>
+<div style="background-color: white; padding: 2rem 0">
+  <div class="container col-md-12 col-lg-9">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-12">
+        <h1>How it Works</h1>
+        <p style="padding: 1rem 0">All your issues submitted will be reviewed by our responder team. Based on the severity of the issue, the team may reach out to you for further clarification towards the issue.</p>
+      </div>
+      <div class="col-lg-6 col-md-12" style="text-align: right;">
+        {% load static %}<img src="{% static 'index2.jpg' %}" alt="Designed by Freepik" style="width: 75%;">
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding: 2rem 0">
+  <div class="container col-md-12 col-lg-9">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-12">
+        {% load static %}<img src="{% static 'index3.jpg' %}" alt="Designed by Freepik" width=75%>
+      </div>
+      <div class="col-lg-6 col-md-12" style="padding: 0 1rem; text-align: right;">
+        <h1 id="contactus">Help Centre</h1>
+        <p>Have a question? You can reach out to us through these platforms:</p>
+        <a href="mailto:acastowncouncil@acas.com"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#004A57" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+          <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+        </svg></a>
+        &nbsp; &nbsp; &nbsp;
+        <a href="tel:12345678"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#004A57" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+        </svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
